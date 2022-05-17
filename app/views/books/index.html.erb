@@ -14,14 +14,20 @@
     <tr>
       <td><%= book.title %></td>
       <td><%=  book.body %></td>
-      <td class="show">
+      <td>
+        <span class="show">
         <%= link_to "Show", book_path(book.id) %>
+        </span>
       </td>
-       <td class="edit">
+       <td>
+        <span class="edit">
         <%= link_to "Edit", edit_book_path(book.id) %>
+        </span>
       </td>
-      <td class= "destroy">
+      <td>
+        <span class ="destroy">
         <%= link_to "Destroy", book_path(book.id) %>
+        </span>
       </td>
     </tr>
 <% end %>
@@ -30,13 +36,18 @@
 
 <h2>New Book</h2>
 <%= form_with model: @book do |f| %>
-<p>title</p>
+<div class="field">
+
+<%= f.label :title %><br>
 <%= f.text_field :title %>
-<p>body</p>
+</div>
+<div class="field">
+<%= f.label :body %><br>
 <%= f.text_area :body %>
-
+</div>
+<div class="action">
 <%= f.submit 'Creat Book' %>
-
+</div>
 <% end %>
 
 
